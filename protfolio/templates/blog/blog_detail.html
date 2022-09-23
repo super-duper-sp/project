@@ -1,0 +1,503 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+  <div class="feature-image" style="background-image: url('{{ post.img.url }}');"></div>
+  <div class="container-fluid article-content">
+    <div class="article-header site-main">
+      <div class="entry-cats">
+           {% for category in post.categories.all %}
+        <a href="{% url 'blog_category' category.name %}" >{{ category.name }}</a>
+          {% endfor %}
+      </div>
+      <h1 class="entry-title">{{ post.title }}</h1>
+
+        <!--
+      <div class="author">
+        <a class="avatar">
+          <img height="80" width="80" src="https://vignette.wikia.nocookie.net/redvelvet/images/6/65/Red_Velvet_Irene_The_Perfect_Red_Velvet_promo_picture_2.PNG/revision/latest?cb=20180127193447"/>
+        </a>
+        <div class="inner-meta">
+          <span>By <a class="created-by">Irene</a></span>
+          <p class="created-at">{{ post.created_on.date }} </p>
+        </div>
+      </div>
+
+        -->
+    </div>
+    <div class="site-main article-text-wrap">
+        <p class="drop-cap">{{ post.body  }}</p>
+
+
+
+    </div>
+    <div class="site-main entry-footer">
+
+
+
+
+        <section id="contact">
+      <h3 style="color:white;">Leave a comment:</h3>
+      <form action="/blog/{{ post.pk }}/" method="post">
+           {% csrf_token %}
+        <input type="text" placeholder='NAME'  name="author">
+
+        <textarea placeholder='YOUR MESSAGE' name="body"></textarea>
+        <button class="button" type="submit" href="/">Submit</button>
+      </form>
+    </section>
+
+<!-- alll comments here-->
+        <div class="container bootstrap snippet">
+    <div class="row">
+		<div class="col-md-12">
+		    <div class="blog-comment">
+				<h3 class="text-success">Comments</h3>
+                <hr/>
+				<ul class="comments">
+                    {% for comment in comments %}
+
+
+				<li class="clearfix">
+				  <img src="https://bootdey.com/img/Content/user_1.jpg" class="avatar" alt="">
+				  <div class="post-comments">
+				      <p class="meta">{{comment.created_on.date }}&nbsp;<a href="#">{{ comment.author }}</a> says : <i class="pull-right"><a href="#"><small></small></a></i></p>
+				      <p>
+				         {{ comment.body }}
+				      </p>
+				  </div>
+				</li>
+                    {% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<style>body{
+    background:#eee;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #FFFFFF;
+}
+a {
+    color: #82b440;
+    text-decoration: none;
+}
+.blog-comment::before,
+.blog-comment::after,
+.blog-comment-form::before,
+.blog-comment-form::after{
+    content: "";
+	display: table;
+	clear: both;
+}
+
+.blog-comment{
+    padding-left: 15%;
+	padding-right: 15%;
+}
+
+.blog-comment ul{
+	list-style-type: none;
+	padding: 0;
+}
+
+.blog-comment img{
+	opacity: 1;
+	filter: Alpha(opacity=100);
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	  	 -o-border-radius: 4px;
+			border-radius: 4px;
+}
+
+.blog-comment img.avatar {
+	position: relative;
+	float: left;
+	margin-left: 0;
+	margin-top: 0;
+	width: 65px;
+	height: 65px;
+}
+
+.blog-comment .post-comments{
+	border: 1px solid #eee;
+    margin-bottom: 20px;
+    margin-left: 85px;
+	margin-right: 0px;
+    padding: 10px 20px;
+    position: relative;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+       	 -o-border-radius: 4px;
+    		border-radius: 4px;
+	background: #fff;
+	color: #6b6e80;
+	position: relative;
+}
+
+.blog-comment .meta {
+	font-size: 13px;
+	color: #aaaaaa;
+	padding-bottom: 8px;
+	margin-bottom: 10px !important;
+	border-bottom: 1px solid #eee;
+}
+
+.blog-comment ul.comments ul{
+	list-style-type: none;
+	padding: 0;
+	margin-left: 85px;
+}
+
+.blog-comment-form{
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-top: 40px;
+}
+
+.blog-comment h3,
+.blog-comment-form h3{
+	margin-bottom: 40px;
+	font-size: 26px;
+	line-height: 30px;
+	font-weight: 800;
+}</style>
+
+<!-- alll comments end  here-->
+
+
+
+    </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!--its is for post -->
+<style>
+    :root {
+  --side-padding: 50px;
+  --main-color: #1890ff;
+  --shadow-color: rgba(0,0,0,.1);
+  --text-font-size: 18px;
+}
+
+p {
+  font-size: var(--text-font-size);
+}
+
+.feature-image {
+  height: 32rem;
+  background-size: cover;
+    -webkit-box-shadow: 0 40px 50px var(--shadow-color);
+       -moz-box-shadow: 0 40px 50px var(--shadow-color);
+            box-shadow: 0 40px 50px var(--shadow-color);
+}
+
+.site-main {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .site-main {
+    width: 80%;
+  }
+}
+@media (min-width: 992px) {
+  .site-main {
+    width: 70%;
+  }
+}
+@media (min-width: 1200px) {
+  .site-main {
+    width: 50%;
+  }
+}
+
+.drop-cap:first-letter {
+  float: left;
+  margin-right: 0.25em;
+  color: #222;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 1;
+}
+
+.article-content {
+  background-color: transparent;
+  padding: 0;
+}
+
+.article-header {
+  margin-top: -160px;
+  background-color: #fff;
+  box-shadow: 0 -23px 50px var(--shadow-color);
+  padding: 50px var(--side-padding);
+}
+
+.featured-image-wrap{
+  position: relative;
+
+}
+
+.entry-cats {
+  margin-bottom: 10px;
+}
+
+.entry-cats a {
+  display: inline-block;
+  background: var(--main-color);
+  text-decoration: none;
+  color: white;
+  padding: 4px 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+
+}
+
+.entry-title {
+  font-weight: 900;
+}
+
+.article-text-wrap {
+  padding: 1rem;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+
+}
+
+/* .avatar {
+    vertical-align: middle;
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+} */
+
+.avatar img {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.author {
+  margin-top: 25px;
+  display: flex;
+}
+
+.inner-meta {
+  margin-left: 20px;
+  display: -webkit-flex; /* Safari */
+  -webkit-justify-content: space-around; /* Safari 6.1+ */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.created-by {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--main-color);
+}
+
+.created-at {
+ color: grey;
+}
+
+.container {
+    width: 60%;
+}
+
+
+
+.entry-footer {
+  padding: 50px var(--side-padding);
+}
+
+.entry-footer  a {
+    margin-right: 8px;
+    color: #757575;
+    font-weight: 700;
+    text-decoration: none;
+  text-transform: uppercase;
+}
+
+.entry-footer a:before {
+    content: "#";
+    padding-right: 1px;
+}
+
+.links-meta{
+    text-transform: uppercase;
+    font-weight: 900;
+}
+</style>
+
+
+
+<!--style for comment box -->
+<style>
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+/* variables */
+:root {
+  --primary: #22d0ff;
+  --secondary: #0a0b5b;
+}
+
+
+
+
+.button {
+  background: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.6);
+  display: inline-block;
+}
+.button:hover {
+  color: #222;
+  background-color: var(--primary);
+}
+.button:active {
+  outline: none;
+}
+input,
+textarea {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #f2f2f2;
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid #9893d8;
+}
+p,
+ {
+  color: #9893d8;
+}
+
+.leading {
+  font-size: 1.1em;
+}
+
+/* MOBILE STYLES */
+
+
+
+
+/* 5- contact section */
+#contact {
+  padding: 30px 20px;
+  background: #080936;
+}
+#contact h3,
+#contact p {
+  text-align: center;
+  margin-bottom: 0;
+}
+#contact form {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+#contact input,
+#contact textarea {
+  width: 100%;
+  margin: 10px 0;
+}
+#contact .button {
+  margin-top: 10px;
+}
+
+
+
+/* LARGE TABLET & LAPTOP STYLES */
+@media screen and (min-width: 960px) {
+
+
+  .leading {
+    margin: 20px 0;
+  }
+
+
+
+}
+
+/* DESKTOP STYLES */
+@media screen and (min-width: 1200px) {
+
+  #contact {
+    padding: 90px 0;
+  }
+
+
+
+
+}
+
+
+/* fonts */
+
+h3,
+{
+  color: #dddbff;
+  font-weight: normal;
+}
+
+</style>
+{% endblock %}
+<!--
+
+<div class="col-md-8 offset-md-2">
+     <h1>{{ post.title }}</h1>
+     <small>
+    {{ post.created_on.date }} |&nbsp;
+         Categories:&nbsp;
+    {% for category in post.categories.all %}
+    <a href="{% url 'blog_category' category.name %}">
+            {{ category.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+    <p>{{ post.body |  safe }}</p>
+    <h3>Leave a comment:</h3>
+    <form action="/blog/{{ post.pk }}/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.author }}
+        </div>
+        <div class="form-group">
+            {{ form.body }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <h3>Comments:</h3>
+    {% for comment in comments %}
+    <p>
+        On {{comment.created_on.date }}&nbsp;
+        <b>{{ comment.author }}</b> wrote:
+    </p>
+    <p>{{ comment.body }}</p>
+    <hr>
+    {% endfor %}
+</div>
+
+
+-->

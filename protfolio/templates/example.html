@@ -1,0 +1,291 @@
+{% include 'base.html' %}
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Portfolio</title>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+    <link rel="stylesheet" href="{% static '/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static '/unicons.css' %}">
+    <link rel="stylesheet" href="{% static '/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static '/owl.theme.default.min.css' %}">
+
+    <!-- MAIN STYLE -->
+    <link rel="stylesheet" href="{% static '/tooplate-style.css' %}">
+
+<!--
+
+
+
+-->
+  </head>
+  <body>
+
+    <!-- MENU -->
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><i class='fa fa-user' style="font-size:40px"></i> Shubham Patidar</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+             <!--   <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link"><span data-hover="About">About</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#project" class="nav-link"><span data-hover="Projects">Projects</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#resume" class="nav-link"><span data-hover="Resume">Resume</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link"><span data-hover="Contact">Contact</span></a>
+                    </li>
+                </ul>
+-->
+                <ul class="navbar-nav ml-lg-auto">
+                    <div class="ml-lg-4">
+                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
+                        <i class="color-mode-icon"></i>
+                        Color mode
+                      </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ABOUT -->
+    <section class="about full-screen d-lg-flex justify-content-center align-items-center" id="about">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-7 col-md-12 col-12 d-flex align-items-center">
+                    <div class="about-text">
+                        <small class="small-text">Welcome to <span class="mobile-block">my portfolio website!</span></small>
+                        <h1 class="animated animated-text">
+                            <span class="mr-2">Hey folks, I'm</span>
+                                <div class="animated-info">
+                                    <span class="animated-item">Shubham Patidar</span>
+                                    <br>
+
+                                    <span class="animated-item">Web Designer</span>
+                                    <span class="animated-item">UI Specialist</span>
+                                </div>
+                        </h1>
+
+                        <p>Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
+
+                        <div class="custom-btn-group mt-4">
+                          <a href="" class="btn mr-lg-2 custom-btn"><i class='fa fa-download'  style="font-size:20px"></i> Download Resume</a>
+                          <a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Get a free quote</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 col-md-12 col-12">
+                    <div class="about-image svg">
+                        <img src="{% static 'Untitled design.gif' %}" class="img-fluid" alt="svg image">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="project py-5" id="project">
+        <div class="container">
+
+                <div class="row">
+                  <div class="col-lg-11 text-center mx-auto col-12">
+
+                      <div class="col-lg-8 mx-auto">
+                        <a href="{% url 'projects' %}"><h2 >Things I have Made : Project</h2></a>
+                      </div>
+
+                      <div class="owl-carousel owl-theme">
+                          {% for p in projects %}
+                        <div class="item">
+                          <div class="project-info">
+                              {% if p.image %}
+                            <img src="{{ p.image.url }}" class="img-fluid" alt="project image">
+                              {% endif %}
+                          </div>
+                        </div>
+                          {% endfor %}
+
+
+                      </div>
+
+                  </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12">
+                  <h2 class="mb-4">Experiences</h2>
+
+                    <div class="timeline">
+
+
+
+{% for ex in experiences %}
+
+                        <div class="timeline-wrapper">
+                             <div class="timeline-yr">
+                                  <span>{{ex.year}}</span>
+                             </div>
+                             <div class="timeline-info">
+                                  <h3><span>{{ex.heading}}</span><small>{{ex.company}}</small></h3>
+                                  <p>{{ex.description}}</p>
+                             </div>
+                        </div>
+
+{% endfor %}
+
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-12">
+                  <h2 class="mb-4 mobile-mt-2">Educations</h2>
+
+                    <div class="timeline">
+
+
+
+{% for ed in educations %}
+
+                        <div class="timeline-wrapper">
+                             <div class="timeline-yr">
+                                  <span>{{ed.year}}</span>
+                             </div>
+                             <div class="timeline-info">
+                                  <h3><span>{{ed.heading}}</span><small>{{ed.institute}}</small></h3>
+                                  <p>{{ed.description}}</p>
+                             </div>
+                        </div>
+
+{% endfor %}
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact py-5" id="contact">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 mr-lg-5 col-12">
+            <div class="google-map w-100">
+             <img src="{% static 'Untitled design.gif' %}" class="img-fluid" alt="svg image">
+            </div>
+
+            <div class="contact-info d-flex justify-content-between align-items-center py-4 px-lg-5">
+                <div class="contact-info-item">
+                  <h3 class="mb-3 text-white">Say hello</h3>
+                  <p class="footer-text mb-0">+91 7987206794</p>
+                  <p><a href="mailto:shubham15362@gmail.com">shubham15362@gmail.com</a></p>
+                </div>
+
+                <ul class="social-links">
+                     <li><a href="#" class="fa fa-github" style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Github"></a></li>
+                     <li><a href="#" class="fa fa-linkedin"  style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Linkedin"></a></li>
+                     <li><a href="#" class="fa fa-youtube"  style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
+                </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-12">
+            <div class="contact-form">
+              <h2 class="mb-4">Interested to work together? Let's talk</h2>
+
+
+
+
+              <form action="" method="POST">
+                  {% csrf_token %}
+                <div class="row">
+                  <div class="col-lg-6 col-12">
+                    <input type="text" class="form-control" name="name" placeholder="Full name" id="name">
+                  </div>
+
+                  <div class="col-lg-6 col-12">
+                    <input type="email" class="form-control" name="email" placeholder="Email" id="email">
+                  </div>
+
+                  <div class="col-12">
+                    <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
+                  </div>
+
+                  <div class="ml-lg-auto col-lg-5 col-12">
+                    <input type="submit" class="form-control submit-btn" value="Send Button">
+                  </div>
+                </div>
+              </form>
+
+
+
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+     <footer class="footer py-5">
+          <div class="container">
+               <div class="row">
+
+                    <div class="col-lg-12 col-12">
+                        <p class="copyright-text text-center">Copyright &copy; 2022 Shubham Patidar . All rights reserved</p>
+                        <p class="copyright-text text-center">Designed & Develope with LOVE By <a rel="nofollow" href="https://www.facebook.com/tooplate">Shubham </a></p>
+                    </div>
+
+               </div>
+          </div>
+     </footer>
+
+    <script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static '/js/popper.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/Headroom.js' %}"></script>
+    <script src="{% static '/js/jQuery.headroom.js' %}"></script>
+    <script src="{% static '/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static '/js/smoothscroll.js' %}"></script>
+    <script src="{% static '/js/custom.js' %}"></script>
+
+  </body>
+</html>
