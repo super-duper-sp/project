@@ -216,7 +216,7 @@ body {
            {% for category in post.categories.all %}
         <h2 class="author"><a href="{% url 'blog_category' category.name %}"> {{ category.name }}</a></h2>
           {% endfor %}
-      <p> {{ post.body | slice:":400" }}...</p>
+      <p> {{ post.body | slice:":400"}}...</p>
       <p class="read-more">
         <a href="{% url 'blog_detail' post.pk%}">Read More</a>
       </p>
