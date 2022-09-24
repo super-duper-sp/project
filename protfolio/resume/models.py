@@ -33,4 +33,13 @@ class ExperienceModel(models.Model):
     def __str__(self):
         return self.heading
 
+class AttractModel(models.Model):
+    heading= models.CharField(max_length=100,null=True, blank=True)
+    heading2 = models.CharField(max_length=100, null=True, blank=True)
+    heading3 = models.CharField(max_length=100, null=True, blank=True)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.heading
+
 

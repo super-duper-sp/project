@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ProjectModel
+from .models import ProjectModel, ExtraModel
 # Create your views here.
 
 
@@ -7,6 +7,6 @@ from .models import ProjectModel
 def projects(request):
      projects = ProjectModel.objects.all()
 
-     return render(request, 'projects.html', {'projects':projects })
+     return render(request, 'projects.html', {'projects':projects ,})
 
 

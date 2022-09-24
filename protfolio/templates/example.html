@@ -80,16 +80,19 @@
                         <h1 class="animated animated-text">
                             <span class="mr-2">Hey folks, I'm</span>
                                 <div class="animated-info">
-                                    <span class="animated-item">Shubham Patidar</span>
-                                    <br>
 
-                                    <span class="animated-item">Web Designer</span>
-                                    <span class="animated-item">UI Specialist</span>
+{% for a in attracts %}
+                                    <span class="animated-item">{{a.heading}}</span>
+                                    <span class="animated-item">{{a.heading2}}</span>
+                                    <span class="animated-item">{{a.heading3}}</span>
+
+{% endfor %}
                                 </div>
                         </h1>
-
-                        <p>Building a successful product is a challenge. I am highly energetic in user experience design, interfaces and web development.</p>
-
+                        <br><br>
+{% for a in attracts %}
+                        <p>{{a.content}}</p>
+{% endfor %}
                         <div class="custom-btn-group mt-4">
                           <a href="https://docs.google.com/document/d/1S0xtpgWSo4zzaPZmBZpRM2MFDQc9cLHL/edit?usp=sharing&ouid=111794050153544843692&rtpof=true&sd=true" class="btn mr-lg-2 custom-btn"><i class='fa fa-download'  style="font-size:20px"></i> Download Resume</a>
                           <!--<a href="#contact" class="btn custom-btn custom-btn-bg custom-btn-link">Get a free quote</a>-->
@@ -134,8 +137,45 @@
 
                   </div>
                 </div>
+
+
+
+
         </div>
     </section>
+
+<section>
+</main>
+    <!-- extra -->
+
+<main class="main">
+     <div style="margin: auto;width: 50%;padding: 10px;" >
+                        <a href="{% url 'projects' %}"><h2 style="text-align:center;">MORE</h2></a>
+         <small class="small-text" style="text-align:center;">Scroll Horizontal To Know More</small>
+     </div>
+	<div class="container">
+		<div class="scroll">
+            {% for x in extras %}
+			<div class="card">
+				<div class="card-image">
+                     {% if x.image %}
+					<img src="{{ x.image.url }}" loading="lazy" class="responsive" alt="Images">
+                     {% endif %}
+				</div>
+				<div class="card-inner">
+					<h3 class="text text-title">{{x.heading}}</h3>
+					<p class="paragraph truncate">
+						{{x.desc}}
+					</p>
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+	</div>
+</main>
+</section>
+<!-- extra end -->
+
 
     <!-- FEATURES -->
     <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
@@ -218,9 +258,9 @@
                 </div>
 
                 <ul class="social-links">
-                     <li><a href="#" class="fa fa-github" style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Github"></a></li>
-                     <li><a href="#" class="fa fa-linkedin"  style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Linkedin"></a></li>
-                     <li><a href="#" class="fa fa-youtube"  style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
+                     <li><a href="https://github.com/super-duper-sp" class="fa fa-github" style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Github"></a></li>
+                     <li><a href="https://www.linkedin.com/in/shubham-patidar-98ba5b148" class="fa fa-linkedin"  style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Linkedin"></a></li>
+                     <li><a href="https://www.youtube.com/channel/UCod8a6jFJtUM6l7hFRn460A" class="fa fa-youtube"  style="font-size:40px" data-toggle="tooltip" data-placement="left" title="Youtube"></a></li>
                 </ul>
             </div>
           </div>
@@ -271,7 +311,7 @@
 
                     <div class="col-lg-12 col-12">
                         <p class="copyright-text text-center">Copyright &copy; 2022 Shubham Patidar . All rights reserved</p>
-                        <p class="copyright-text text-center">Designed & Develope with LOVE By <a rel="nofollow" href="https://www.facebook.com/tooplate">Shubham </a></p>
+                        <p class="copyright-text text-center">Designed & Develope with LOVE By <a rel="nofollow" href="https://www.linkedin.com/in/shubham-patidar-98ba5b148">Shubham </a></p>
                     </div>
 
                </div>
@@ -288,4 +328,197 @@
     <script src="{% static '/js/custom.js' %}"></script>
 
   </body>
+
+
+
+
+<!--for extra scroll-->
+<style>
+    html {
+  font-size: 100%;
+  font-size-adjust: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #252a32;
+  background: #ffffff;
+}
+
+a,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.container {
+  max-width: 80rem;
+  width: 100%;
+  height: auto;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.text {
+  font-family: inherit;
+  font-weight: 700;
+  line-height: inherit;
+  text-rendering: optimizeLegibility;
+}
+.text-title {
+  font-size: 1.25rem;
+  color: #d32f2f;
+}
+
+.paragraph {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: inherit;
+  margin: 0.25rem 0;
+  color: #252a32;
+  text-transform: unset;
+  text-rendering: optimizeLegibility;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 8;
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main .scroll {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 1rem 0;
+  margin: 2.5rem 0;
+  cursor: default;
+  overflow: scroll hidden;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  scroll-padding: 0px 1.25rem;
+  scrollbar-width: none;
+}
+.main .scroll::-webkit-scrollbar {
+  display: none;
+}
+.main .scroll.active {
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+.main .scroll .card {
+  width: 16rem;
+  height: auto;
+  flex: 0 0 auto;
+  margin: 0 0.75rem;
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  color: #252a32;
+  background: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.main .scroll .card-image {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding-top: 110%;
+}
+.main .scroll .card-image img.responsive {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main .scroll .card-inner {
+  width: 100%;
+  height: auto;
+  padding: 1rem;
+}
+</style>
+<script>
+    const scroll = document.querySelector(".scroll");
+var isDown = false;
+var scrollX;
+var scrollLeft;
+
+// Mouse Up Function
+scroll.addEventListener("mouseup", () => {
+	isDown = false;
+	scroll.classList.remove("active");
+});
+
+// Mouse Leave Function
+scroll.addEventListener("mouseleave", () => {
+	isDown = false;
+	scroll.classList.remove("active");
+});
+
+// Mouse Down Function
+scroll.addEventListener("mousedown", (e) => {
+	e.preventDefault();
+	isDown = true;
+	scroll.classList.add("active");
+	scrollX = e.pageX - scroll.offsetLeft;
+	scrollLeft = scroll.scrollLeft;
+});
+
+// Mouse Move Function
+scroll.addEventListener("mousemove", (e) => {
+	if (!isDown) return;
+	e.preventDefault();
+	var element = e.pageX - scroll.offsetLeft;
+	var scrolling = (element - scrollX) * 2;
+	scroll.scrollLeft = scrollLeft - scrolling;
+});
+
+</script>
 </html>
