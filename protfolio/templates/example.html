@@ -1,7 +1,7 @@
 {% include 'base.html' %}
 <!doctype html>
 {% load static %}
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -144,14 +144,15 @@
         </div>
     </section>
 
+<div style="border: 2px solid black">
 <section>
-</main>
+
     <!-- extra -->
 
 <main class="main">
      <div style="margin: auto;width: 50%;padding: 10px;" >
-                        <a href="{% url 'projects' %}"><h2 style="text-align:center;">MORE</h2></a>
-         <small class="small-text" style="text-align:center;">Scroll Horizontal To Know More</small>
+                        <a href="{% url 'projects' %}"><h2 style="text-align:center;">Skills</h2></a>
+
      </div>
 	<div class="container">
 		<div class="scroll">
@@ -173,10 +174,39 @@
 		</div>
 	</div>
 </main>
-</section>
+
 <!-- extra end -->
 
+ <!-- achievements -->
 
+<main class="main">
+     <div style="margin: auto;width: 50%;padding: 10px;" >
+                        <a href="{% url 'projects' %}"><h2 style="text-align:center;">Achievements</h2></a>
+     </div>
+	<div class="container">
+		<div class="scroll">
+            {% for x in achieves %}
+			<div class="card">
+				<div class="card-image">
+                     {% if x.image %}
+					<img src="{{ x.image.url }}" loading="lazy" class="responsive" alt="Images">
+                     {% endif %}
+				</div>
+				<div class="card-inner">
+					<h3 class="text text-title"><a href="{{x.link}}">{{x.heading}}</a></h3>
+					<p class="paragraph truncate">
+						{{x.desc}}
+					</p>
+				</div>
+			</div>
+            {% endfor %}
+		</div>
+	</div>
+</main>
+</section>
+<!-- achievements end -->
+</div>
+     <div style="margin: auto;width: 50%;padding: 10px;"><small class="small-text" style="text-align:center;">Scroll Horizontal To See above cards</small></div>
     <!-- FEATURES -->
     <section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
         <div class="container">
