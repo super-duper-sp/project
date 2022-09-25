@@ -34,7 +34,7 @@ button {
   font-family: inherit;
 }
 button.learn-more {
-  width: 12rem;
+  width: 20rem;
   height: auto;
 }
 button.learn-more .circle {
@@ -42,8 +42,8 @@ button.learn-more .circle {
   position: relative;
   display: block;
   margin: 0;
-  width: 3rem;
-  height: 3rem;
+  width: 4rem;
+  height: 4rem;
   background: #282936;
   border-radius: 1.625rem;
 }
@@ -57,8 +57,8 @@ button.learn-more .circle .icon {
 }
 button.learn-more .circle .icon.arrow {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  left: 0.625rem;
-  width: 1.125rem;
+  left: 0.1rem;
+  width: 2.125rem;
   height: 0.125rem;
   background: none;
 }
@@ -84,8 +84,10 @@ button.learn-more .button-text {
   margin: 0 0 0 1.85rem;
   color: #282936;
   font-weight: 700;
-  line-height: 1.6;
+
   text-align: center;
+  font-size:xx-large;
+
   text-transform: uppercase;
 }
 button:hover .circle {
@@ -152,8 +154,15 @@ button:hover .button-text {
     <span class="circle" aria-hidden="true">
       <span class="icon arrow"></span>
     </span>
-    <span class="button-text"><a href="{% url 'resume' %}" style="text-decoration:none; color:white;">Learn More</a></span>
+    <span class="button-text" ><a href="{% url 'resume' %}" style="text-decoration:none; color:white; " >Learn More</a></span>
   </button>
+
+    <div class="header-img" style="color:white; position: absolute;
+  left: 10%;
+  right:10%;
+  top: 90%;
+
+   text-align: center;"><small>NOTE: for best experience open in desktop view or open in Laptop or PC</small></div>
 </div>
 
     <div class="imsrk2">Shubham Patidar</div>
