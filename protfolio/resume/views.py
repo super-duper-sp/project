@@ -1,13 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
+from blog.models import Post
 from .models import MessageModel,EducationModel,ExperienceModel ,AttractModel
 from django.apps import apps
+BlogModel = apps.get_model('blog','Post')
 ProjectModel = apps.get_model('pro','ProjectModel')
 ExtraModel = apps.get_model('pro','ExtraModel')
 AchievementModel=apps.get_model('pro','AchievementModel')
 def resu(request):
     extra = ExtraModel.objects.all()
+    blog =Post.objects.all()
     experience = ExperienceModel.objects.all()
     education = EducationModel.objects.all()
     project = ProjectModel.objects.all()
@@ -21,7 +24,7 @@ def resu(request):
         post.save()
         return render(request, 'example.html')
     else:
-        return render(request, 'example.html',{'achieves':achieve,'experiences':experience,'educations':education ,'projects':project ,'attracts':attract ,'extras':extra })
+        return render(request, 'example.html',{'achieves':achieve,'experiences':experience,'educations':education ,'projects':project ,'attracts':attract ,'extras':extra,'blogs':blog })
 
 
 
