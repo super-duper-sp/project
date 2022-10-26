@@ -80,12 +80,8 @@ WSGI_APPLICATION = 'protfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dc20f46filtalb',
-        'USER': 'jgoxebmnvmzpaq',
-        'PASSWORD': '52f5043b9f80afd018132acb562da6983345a91bc2a9c27578ea0d5c451403a1',
-        'HOST': 'ec2-3-213-66-35.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

@@ -4,7 +4,7 @@
 
 
   <div style="margin: auto;width: 50%;padding: 10px;" >
-                        <a href="{% url 'projects' %}"><h2 style="text-align:center;">Blog</h2></a>
+                        <a href="{% url 'blog_index' %}" ><h2 style="text-align:center;">Blog</h2></a>
 
      </div>
 <div class="wrapper">
@@ -15,7 +15,7 @@
 		 {% endif %}
 
 			<div class="card-text">
-				<h3>{{blog.title}}</h3>
+				<a href="{% url 'blog_detail' blog.pk%}" ><h3>{{blog.title}}</h3></a>
 
 			</div>
 		</div>
