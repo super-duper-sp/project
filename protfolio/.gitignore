@@ -1,4 +1,6 @@
 ../ones/
+../god/
 django/
 .idea
 .DS_Store
+.env

@@ -11,10 +11,16 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
+
 import  os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+import environ
+env = environ.Env()
+
+environ.Env.read_env()
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,9 +31,11 @@ SECRET_KEY = 'django-insecure-5&w#gkein*0d_h)m-429ig$eef1$sw^b-2zunya1j=m+ka5(lj
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['portfolio-shubham-patidar.herokuapp.com','127.0.0.1']
+
+ALLOWED_HOSTS = ['*']
+
 
 # Application definition
 
@@ -79,8 +87,12 @@ WSGI_APPLICATION = 'protfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
-DATABASES = {'default': dj_database_url.parse(DATABASE_URL)}
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+
+}
 
 
 # Password validation
