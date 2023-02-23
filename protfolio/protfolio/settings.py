@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5&w#gkein*0d_h)m-429ig$eef1$sw^b-2zunya1j=m+ka5(lj
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://project-production-02ec.up.railway.app','127.0.0.1']
+ALLOWED_HOSTS = ['project-production-02ec.up.railway.app','127.0.0.1']
 
 # Application definition
 
