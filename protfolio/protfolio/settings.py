@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5&w#gkein*0d_h)m-429ig$eef1$sw^b-2zunya1j=m+ka5(lj
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app','.now.sh','localhost']
 
 # Application definition
 
@@ -141,5 +141,6 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT =BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static')
