@@ -2,15 +2,15 @@
     "version": 2,
     "builds": [
     {
-    "src": "devntechno/wsgi.py",
+    "src": "protfolio/wsgi.py",
     "use": "@vercel/python",
     "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
     "src": "build_files.sh",
-    "use": "@portfolio/static-build",
+    "use": "@vercel/staticfiles",
     "config": {
-    "distDir": "staticfiles_build"
+    "distDir": "staticfiles"
      }
     }
     ],
@@ -21,7 +21,7 @@
     },
     {
     "src": "/(.*)",
-    "dest": "portfolio/wsgi.py"
+    "dest": "protfolio/wsgi.py"
     }
     ]
     }
