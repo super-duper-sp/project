@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import  os
+import os ,dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5&w#gkein*0d_h)m-429ig$eef1$sw^b-2zunya1j=m+ka5(lj
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app','.now.sh','localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '.now.sh', 'localhost']
 
 # Application definition
 
@@ -78,17 +78,19 @@ WSGI_APPLICATION = 'protfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER':'postgres',
-        'PASSWORD':'NNN8mAY4jbmNGQd67c4p',
-        'HOST':'containers-us-west-175.railway.app',
-        'PORT':'5747',
 
+DATABASES = {
+        'default': {
+            'ENGINE': "django.db.backends.postgresql_psycopg2",
+            'NAME': 'postgres',
+            'USER': 'postgres',
+            'PASSWORD': 'Ptnn*7987206794',
+            'HOST': 'db.hlzyyhtwgggvtjjhllel.supabase.co',
+            'PORT': '5432',
+
+        }
     }
-}
+
 
 
 # Password validation
@@ -127,20 +129,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-#write by me
+# write by me
 
-#end
+# end
 # STATICFILES_DIRS = [BASE_DIR / "static"]
 # STATIC_ROOT  = BASE_DIR / "staticfiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-#medias
+# medias
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT =BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
