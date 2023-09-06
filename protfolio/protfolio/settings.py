@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-5&w#gkein*0d_h)m-429ig$eef1$sw^b-2zunya1j=m+ka5(lj
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1' ]
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 # Application definition
 
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'protfolio.wsgi.application'
+WSGI_APPLICATION = 'protfolio.wsgi.app'
 
 
 # Database
@@ -130,8 +130,8 @@ STATIC_URL = 'static/'
 #write by me
 
 #end
-STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT  = BASE_DIR / "staticfiles"
+# STATICFILES_DIRS = [BASE_DIR / "static"]
+# STATIC_ROOT  = BASE_DIR / "staticfiles"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -139,4 +139,7 @@ STATIC_ROOT  = BASE_DIR / "staticfiles"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT =BASE_DIR / "media"
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
