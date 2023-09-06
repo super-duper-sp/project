@@ -8,6 +8,7 @@ BlogModel = apps.get_model('blog','Post')
 ProjectModel = apps.get_model('pro','ProjectModel')
 ExtraModel = apps.get_model('pro','ExtraModel')
 AchievementModel=apps.get_model('pro','AchievementModel')
+
 def resu(request):
     extra = ExtraModel.objects.all()
     blog =Post.objects.all()
