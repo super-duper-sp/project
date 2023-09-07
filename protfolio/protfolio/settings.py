@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os ,dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import supabase as supabase
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'pro',
     'blog',
     'django_summernote',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +149,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+
+SUPABASE_API_URL = 'https://hlzyyhtwgggvtjjhllel.supabase.co'
+SUPABASE_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhsenl5aHR3Z2dndnRqamhsbGVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQwMTI5MTEsImV4cCI6MjAwOTU4ODkxMX0.XTWCF3DydOMi0916HvEps5SK8u8czjRYl4B0WSwPh1Y'
+
+supabase_client = supabase.create_client(SUPABASE_API_URL, SUPABASE_API_KEY)
+

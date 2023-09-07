@@ -12,3 +12,5 @@ class ProjectAdmin(SummernoteModelAdmin):
 admin.site.register(ProjectModel)
 admin.site.register(ExtraModel)
 admin.site.register(AchievementModel)
+
+

@@ -22,7 +22,7 @@ from django.views.static import serve
 
 urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls,  name='admin_panel'),
     path('', include('resume.urls')),
     path('pro/', include('pro.urls')),
     path("blog/", include("blog.urls")),

@@ -11,7 +11,7 @@
 	<div class="card-carousel">
 {% for blog in blogs %}
 		{% if blog.img %}
-		<div class="card" style="background-image: url({{ blog.img.url }})">
+		<div class="card" style="background-image: url(https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ blog.img.url }})">
 		 {% endif %}
 
 			<div class="card-text">
