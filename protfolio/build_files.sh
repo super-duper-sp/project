@@ -9,8 +9,9 @@ pip install -r requirements.txt
 
 # Run any other necessary build steps or commands
 # For example:
-# python manage.py collectstatic
-# python manage.py migrate
+python manage.py collectstatic
+python manage.py makemigrations
+python manage.py migrate
 
 # Deactivate the virtual environment when done
 deactivate
