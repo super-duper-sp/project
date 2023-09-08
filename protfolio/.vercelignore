@@ -1,0 +1,18 @@
+# Exclude virtual environment directories
+venv/
+
+# Exclude Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Exclude development and build artifacts
+node_modules/
+*.log
+*.tmp
+
+# Exclude version control files and directories
+.git/
+.gitignore
+svn/
+CVS/

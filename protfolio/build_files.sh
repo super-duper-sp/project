@@ -15,4 +15,10 @@ pip install -r requirements.txt
 # Deactivate the virtual environment when done
 deactivate
 
+# Remove the virtual environment to reduce deployment size
+rm -rf venv
 
+# Create a .vercelignore file to exclude unnecessary files and directories
+echo -e "venv/\n*.pyc\n*.pyo\n__pycache__/" > .vercelignore
+
+# Continue with the deployment process
