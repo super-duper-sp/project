@@ -1,11 +1,18 @@
-# build_files.sh
+#!/bin/bash
 
-venv\Scripts\activate
+# Create and activate a virtual environment
+python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
-python manage.py collectstatic
-python manage.py makemigrations
-python manage.py migrate
 
+# Install project dependencies within the virtual environment
+pip install -r requirements.txt
+
+# Run any other necessary build steps or commands
+# For example:
+# python manage.py collectstatic
+# python manage.py migrate
+
+# Deactivate the virtual environment when done
+deactivate
 
 
