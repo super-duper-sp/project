@@ -156,3 +156,8 @@ SUPABASE_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
 
 supabase_client = supabase.create_client(SUPABASE_API_URL, SUPABASE_API_KEY)
 
+
+SUMMERNOTE_CONFIG = {
+    'summernote_upload_url': 'https://hlzyyhtwgggvtjjhllel.supabase.co/',
+    'summernote_upload_path': 'post/',
+}
