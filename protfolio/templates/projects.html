@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'main/base.html' %}
 {% load static %}
 
 
@@ -11,14 +11,14 @@
 * {
   box-sizing: border-box;
 }
-body {
+.project {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: #f7f8fc;
+  background-color:--bg-primary;
   font-family: "Roboto", sans-serif;
-  color: #10182f;
+  color: var(--color-primary);
 }
 .container {
   display: flex;
@@ -28,7 +28,7 @@ body {
 }
 .card {
   margin: 10px;
-  background-color: #fff;
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -45,7 +45,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   padding: 20px;
-  min-height: 250px;
+  /* min-height: 250px; */
 }
 
 .tag {
@@ -58,9 +58,11 @@ body {
   text-transform: uppercase;
   cursor: pointer;
 }
+
 .tag-teal {
-  background-color: #47bcd4;
+  background-color: var(--raw-seinna);
 }
+
 .tag-purple {
   background-color: #5e76bf;
 }
@@ -94,46 +96,76 @@ body {
 
 
 
-<div class="container">
+<div class="project">
+  <div class="container">
 
-{% for p in projects %}
-  <div class="card">
-    <div class="card-header">
-         {% if p.image %}
-     <!--<img src="{{ p.image.url }}" alt="rover" /> -->
-<img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ p.image.url }}" alt="Image Alt Text">
+   
 
-         {% endif %}
-    </div>
-    <div class="card-body">
-      <span class="tag tag-teal">{{ p.technology }}</span>
-      <h4>
-        {{ p.title }}
-      </h4>
-      <p>
-       {{ p.description }}
-      </p>
-
-        <!-- its user details later
-
-      <div class="user">
-        <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-        <div class="user-info">
-          <h5>July Dec</h5>
-          <small>2h ago</small>
-        </div>
+    {% for p in projects %}
+    <div class="card">
+      <div class="card-header">
+           {% if p.image %}
+       <!--<img src="{{ p.image.url }}" alt="rover" /> -->
+  <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ p.image.url }}" alt="Image Alt Text">
+  
+           {% endif %}
       </div>
+      <div class="card-body">
+        <h2 class="h3 section-title">
+          {{ p.title }}
+        </h2>
+        {% load custom_filters %}
 
-        -->
+        <h2 class="h3 section-title">
+          {% for part in p.technology|split_title %}
+            <div style="display: inline-block; margin-right: 5px;">
+              <span class="tag tag-teal">{{ part }}</span>
+            </div>
+          {% endfor %}
+        </h2>
+
+        <p>
+         {{ p.description }}
+        </p>
+
+        <div style=" padding: 5px;background: #cccccc;display: inline-block; margin-right: 5px;">
+          <a href="{{p.githubLink}}" target="_blank" style="
+           background: #cccccc;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 2px;
+  margin: 0;
+  color: #fff;
+  padding: 2px 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: var(--raw-seinna);
+  ">Github</a>
+        </div>
+        
+  
+          <!-- its user details later
+  
+        <div class="user">
+          <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
+          <div class="user-info">
+            <h5>July Dec</h5>
+            <small>2h ago</small>
+          </div>
+        </div>
+  
+          -->
+      </div>
     </div>
-  </div>
-{% endfor %}
+  {% endfor %}
+</div>
+
 </div>
 
 
 {% endblock %}
 
-<!-- its main
+<!-- its mai 
 
 {% for p in projects %}
 <h1>{{ p.title }}</h1>

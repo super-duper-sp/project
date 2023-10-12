@@ -1,8 +1,5 @@
-{% extends 'main/base.html' %}
-<!DOCTYPE html>
-
+{% extends 'base.html' %}
 {% block content %}
-
 <style>@charset "UTF-8";
 /*PEN STYLES*/
 * {
@@ -10,11 +7,12 @@
 }
 
 body {
-  background: var(--bg-primary);
+  background: #f1f1f1;
   margin: 2rem;
 }
 
 .blog-card {
+
   display: flex;
   flex-direction: column;
   margin: 1rem auto;
@@ -100,7 +98,7 @@ body {
 }
 .blog-card .description {
   padding: 1rem;
-  background:var(--bg-secondary);
+  background: #fff;
   position: relative;
   z-index: 1;
 }
@@ -196,59 +194,57 @@ body {
 }
 </style>
 
-<div style="margin-top: 50px;">
-  <h1 style="color: var(--color-primary);" >category: {{ category | title }}</h1>
-  {% for post in posts %}
-   <div class="blog-card">
-      <div class="meta">
-  
-        <div class="photo" style="background-image: url('https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ post.img.url }}')"></div>
-  
-        <ul class="details">
-  
-          <li class="date">{{ post.created_on.date }}</li>
-            {% for category in post.categories.all %}
-          <li class="author"><a href="{% url 'blog_category' category.name %}"> {{ category.name }}</a></li>
-            {% endfor %}
-  
-        </ul>
-      </div>
-      <div class="description">
-        <h1>{{ post.title }}</h1>
-             {% for category in post.categories.all %}
-          <h2 class="author"><a href="{% url 'blog_category' category.name %}"> {{ category.name }}</a></h2>
-            {% endfor %}
-        <p style="color: var(--color-primary);"> {{ post.body | slice:":400" }}...</p>
-        <p class="read-more">
-          <a href="{% url 'blog_detail' post.pk%}">Read More</a>
-        </p>
-      </div>
-    </div>
-    {% endfor %}
-</div>
 
+<h1>Blog Index</h1>
+{% for post in posts %}
+ <div class="blog-card">
+    <div class="meta">
+
+      <div class="photo" style="background-image: url('https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ post.img.url }}')"></div>
+
+
+      <ul class="details">
+
+        <li class="date">{{ post.created_on.date }}</li>
+          {% for category in post.categories.all %}
+        <li class="author"><a href="{% url 'blog_category' category.name %}"> {{ category.name }}</a></li>
+          {% endfor %}
+
+      </ul>
+    </div>
+    <div class="description">
+      <h1>{{ post.title }}</h1>
+           {% for category in post.categories.all %}
+        <h2 class="author"><a href="{% url 'blog_category' category.name %}"> {{ category.name }}</a></h2>
+          {% endfor %}
+      <p> {{  post.for_showcase  | slice:":400"}}...</p>
+      <p class="read-more">
+        <a href="{% url 'blog_detail' post.pk%}">Read More</a>
+      </p>
+    </div>
+  </div>
+  {% endfor %}
 
 
 {% endblock %}
 
-<!--
 
 
 <div class="col-md-8 offset-md-2">
-    <h1>{{ category | title }}</h1>
-    <hr>
-    {% for post in posts %}
-    <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
-    <small>
-        {{ post.created_on.date }} |&nbsp;
-            Categories:&nbsp;
-            {% for category in post.categories.all %}
-            <a href="{% url 'blog_category' category.name %}">
-                {{ category.name }}
-            </a>&nbsp;
-            {% endfor %}
-        </small>
-        <p>{{ post.body | slice:":400" }}...</p>
+    <h1>Blog Index</h1>
+     <hr>
+     {% for post in posts %}
+     <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
+     <small>
+         {{ post.created_on.date }} |&nbsp;
+        Categories:&nbsp;
+        {% for category in post.categories.all %}
+        <a href="{% url 'blog_category' category.name %}">
+            {{ category.name }}
+        </a>&nbsp;
+        {% endfor %}
+    </small>
+    <p>{{ post.for_showcase }}...</p>
     {% endfor %}
 </div>
--->
+

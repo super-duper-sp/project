@@ -1,0 +1,71 @@
+      <!-- 
+        - #SKILLS
+      -->
+
+      <section class="skills" id="skills">
+
+        <div class="skills-content section-content">
+
+          <p class="section-subtitle">My skills</p>
+
+          <h2 class="h3 section-title">What My Programming Skills Included?</h2>
+
+          <p class="section-text">
+            I develop simple, intuitive and responsive user interface that helps users get things done with less effort
+            and time
+            with those technologies.
+          </p>
+
+          <div class="skills-toggle" data-toggle-box>
+            <button class="toggle-btn active" data-toggle-btn>Skills</button>
+
+            <button class="toggle-btn" data-toggle-btn>Tools</button>
+          </div>
+
+        </div>
+
+        <div class="skills-box" data-skills-box>
+
+                <ul class="skills-list">
+
+    {% for s in Skills %}
+           <li>
+              <div class="skill-card">
+                <div class="tooltip">{{s.heading}}</div>
+
+                <div class="card-icon">
+            {% if s.image %}
+                  <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ s.image.url }}" alt="{{x.heading}}">
+            {% endif %}
+                </div>
+              </div>
+           </li>
+    {% endfor %}
+
+
+                </ul>
+
+
+                <ul class="tools-list">
+
+    {% for t in Tools %}
+
+                    <li>
+              <div class="skill-card">
+                <div class="tooltip">{{t.heading}}</div>
+
+                <div class="card-icon">
+                  {% if t.image %}
+                  <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ t.image.url }}" alt="{{x.heading}}">
+                  {% endif %}
+                </div>
+              </div>
+                    </li>
+
+    {% endfor %}
+
+                </ul>
+
+        </div>
+
+      </section>

@@ -1,0 +1,193 @@
+
+
+<!--Block content goes below-->
+
+
+<section class="project" id="portfolio">
+
+	<ul class="project-list">
+
+	  <li>
+		<div class="project-content section-content">
+
+		  <p class="section-subtitle">My Education</p>
+
+		  <h2 class="h3 section-title">Ed Timeline</h2>
+
+
+		</div>
+	  </li>
+
+	</ul>
+
+
+
+  <div style="margin: auto;width: 50%;padding: 10px;" >
+                        <a href="{% url 'blog_index' %}" ><h2 style="text-align:center;">Blog</h2></a>
+
+   </div>
+
+   <div class="wrapper">
+    <div class="card-carousel">
+        {% for blog in blogs|slice:":3" %}
+            <div class="card" style="background-image: url(https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ blog.img.url }})">
+                <div class="card-text">
+                    <a href="{% url 'blog_detail' blog.pk%}"><h3>{{ blog.title }}</h3></a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>  
+
+</section>
+
+
+
+	 
+
+
+<style>
+
+
+.wrapper {
+	overflow: scroll;
+	width: 100vw;
+}
+
+
+
+h3 {
+	font-size: 2em;
+	font-weight: 900;
+	margin: 0 0 0.25em 0;
+	position: relative;
+	display: inline-block;
+	&:after {
+		content: "";
+		width: 80%;
+		height: 2px;
+		background: #ff4f18;
+		position: absolute;
+		bottom: -0.25em;
+		left: 0;
+		transition: ease all 0.2s;
+	}
+}
+
+h4 {
+	color: #fff;
+	margin-left: 1.5rem;
+	font-size: 2em;
+	font-weight: 300;
+	margin-top: 0;
+}
+
+.card-carousel {
+	display: flex;
+	margin-bottom: 5em;
+	overflow: scroll;
+	 border-radius:20px;
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  padding: 3rem 0 ;
+  margin: 2.5rem 0;
+  cursor: default;
+  overflow: scroll hidden;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
+  scroll-padding: 0px 1.25rem;
+  scrollbar-width: none;
+}
+
+.card {
+
+
+box-shadow: 13px 11px 78px -29px rgba(0,0,0,0.75);
+	cursor: pointer;
+	color: #fff;
+	height: 33em;
+	width: 22.5em;
+	min-width: 22.5em;
+	margin: 2em;
+	background-color: #fdbe15;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+
+	border: 0.25em solid #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	position: relative;
+	z-index: 1;
+	transition: ease all 0.15s;
+	&:hover {
+		box-shadow: 0.65em 0.65em 0 0 #fff;
+		border-color: #fdbe15;
+		.card-icon-border {
+			border-color: #fdbe15;
+		}
+		h3 {
+			&:after {
+				background: #fdbe15;
+			}
+		}
+	}
+	&:after {
+		content: "";
+		position: absolute;
+		height: 65%;
+		width: 100%;
+		bottom: 0;
+		background: linear-gradient(
+			-180deg,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.8) 60%,
+			rgba(0, 0, 0, 0.9) 100%
+		);
+		z-index: -1;
+	}
+	h4 {
+		font-size: 1.25em;
+		font-style: italic;
+		font-weight: 800;
+		background-color: #fdbe15;
+		padding: 0.5em 1em;
+		position: absolute;
+		margin: 0;
+		left: -1em;
+		top: 1em;
+	}
+}
+
+.card-text {
+	margin: 1.5em;
+}
+
+.card-icon-border {
+	position: absolute;
+	top: 1.25em;
+	right: 1.25em;
+	height: 2.5em;
+	width: 2.5em;
+	border: solid 0.15em #fff;
+	background-color: rgba(21, 22, 25, 0.8);
+	border-radius: 9999px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: ease all 0.15s;
+	img {
+		height: 2em;
+		width: 2em;
+	}
+}
+
+</style>
+

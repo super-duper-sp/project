@@ -1,0 +1,38 @@
+  <!-- 
+        - #ABOUT
+      -->
+
+      <section class="about" id="about">
+
+        <figure class="about-banner">
+            {% for a in about %}
+            {% if a.image %}
+
+          <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.image.url }}" alt="A man in a alice blue shirt with a thinking expression"
+            class="w-100">
+
+            {% endif %}
+            {% endfor %}
+        </figure>
+
+        <div class="about-content section-content">
+
+          <p class="section-subtitle">About me</p>
+          {% for a in about %}
+          <h2 class="h3 section-title">{{a.heading}}</h2>
+          {% endfor %}
+          <p class="section-text">
+         
+{% for a in about %}
+
+<p class="section-text">{{a.content}}</p>
+
+          <div class="btn-group">
+            <button class="btn btn-secondary"  href="{{a.hireLink}}">Hire me</button>
+            <button class="btn btn-primary" href="{{a.resumeLink}}">Download cv</button>
+          </div>
+
+{% endfor %}
+        </div>
+
+      </section>

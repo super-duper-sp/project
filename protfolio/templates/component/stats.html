@@ -1,0 +1,45 @@
+
+
+
+<section class="stats" id="stats">
+  <ul class="stats-list">
+
+    <li>
+      <div class="project-content section-content">
+
+        <p class="section-subtitle">Blog</p>
+
+        <h2 class="h3 section-title">Blog</h2>
+
+
+      </div>
+    </li>
+
+    {% for blog in blogs|slice:":2" %}
+    <li>
+      <a href="{% url 'blog_detail' blog.pk %}" class="stats-card">
+
+        <div class="card-icon">
+          {% if blog.img %}
+          <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ blog.img.url }}" alt="Checkmark icon">
+          {% endif %}
+        </div>
+
+        <h2 class="h2 card-title">
+          <strong>{{ blog.title }}</strong>
+        </h2>
+
+       
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+
+      </a>
+    </li>
+    {% endfor %}
+
+  
+
+  </ul>
+</section>
+
+  
+ 

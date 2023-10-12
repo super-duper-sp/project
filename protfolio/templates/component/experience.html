@@ -1,0 +1,63 @@
+<!-- Experience start-->
+<section class="resume py-5 d-lg-flex justify-content-center align-items-center" id="resume">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-6 col-12">
+              <h2 class="mb-4">Experiences</h2>
+
+                <div class="timeline">
+
+
+
+{% for ex in experiences %}
+
+                    <div class="timeline-wrapper">
+                         <div class="timeline-yr">
+                              <span>{{ex.year}}</span>
+                         </div>
+                         <div class="timeline-info">
+                               <h3><span>{{ex.heading}}</span><small>{{ex.company}}</small></h3>
+                              <p>{{ex.description}}</p>
+                         </div>
+                    </div>
+
+{% endfor %}
+
+
+
+
+
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-12">
+              <h2 class="mb-4 mobile-mt-2">Educations</h2>
+
+                <div class="timeline">
+
+
+
+{% for ed in educations %}
+
+                    <div class="timeline-wrapper">
+                         <div class="timeline-yr">
+                              <span>{{ed.year}}</span>
+                         </div>
+                         <div class="timeline-info">
+                              <h3><span>{{ed.heading}}</span><small>{{ed.institute}}</small></h3>
+                              <p>{{ed.description}}</p>
+                         </div>
+                    </div>
+
+{% endfor %}
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Experience end-->

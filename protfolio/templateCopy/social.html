@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% for s in social %}
+
+<div class="row">
+    <div class="col-md-8">
+        {% if s.logo %}
+        <!-- <img src="{{ s.logo.url }}" alt="logo image" width="100"> -->
+        "https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ p.image.url }}"
+                <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ s.logo.url }}" alt="logo image" width="100">
+
+        {% endif %}
+    </div>
+    <div class="col-md-4">
+        <h5>{{ s.heading }}</h5>
+        <br>
+        <h5>{{ s.about }}</h5>
+
+    </div>
+</div>
+
+{% endfor %}
+
+{% endblock %}

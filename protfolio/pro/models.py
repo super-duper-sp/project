@@ -9,7 +9,7 @@ class ProjectModel(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     technology = models.CharField(max_length=200)
-
+    githubLink=  models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='projects/',null=True, blank=True)
 
     def save(self, *args, **kwargs):
@@ -27,10 +27,9 @@ class ProjectModel(models.Model):
     def __str__(self):
         return self.title
 
-class ExtraModel(models.Model):
+class SkillsModel(models.Model):
     heading = models.CharField(max_length=100,null=True, blank=True)
-    desc = models.TextField()
-    image = models.ImageField(upload_to='extra/', null=True, blank=True)
+    image = models.ImageField(upload_to='Skills/', null=True, blank=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
@@ -46,11 +45,9 @@ class ExtraModel(models.Model):
     def __str__(self):
         return self.heading
 
-class AchievementModel(models.Model):
+class ToolsModel(models.Model):
     heading = models.CharField(max_length=100,null=True, blank=True)
-    desc = models.TextField()
-    image = models.ImageField(upload_to='achievement/', null=True, blank=True)
-    link = models.TextField(null=True, blank=True)
+    image = models.ImageField(upload_to='Tools/', null=True, blank=True)
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)

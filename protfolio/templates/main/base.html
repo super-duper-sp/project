@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shubham- personal portfolio</title>
+  
+    <!-- 
+      - favicon
+    -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  
+    <!-- 
+      - custom css link
+    -->
+    <link rel="stylesheet" href="{% static '/assets/css/style.css' %}">
+
+  
+  
+    <!-- 
+      - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&family=Saira+Stencil+One&display=swap"
+      rel="stylesheet">
+ </head>
+
+
+
+
+<body id="top" class="dark_theme">
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  {% include 'component/header.html' %}
+
+  <main>
+    <article class="container">
+
+
+      {% block content %}
+      
+
+      {% endblock %}
+
+    </article>
+  </main>
+  
+
+  <!-- 
+    - #FOOTER
+  -->
+{% include 'component/footer.html' %}
+
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top title="Go to Top">
+    <ion-icon name="arrow-up"></ion-icon>
+  </a>
+
+
+
+
+
+ 
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+     <!-- 
+    - custom js link
+  -->
+  <script src="{% static '/assets/js/script.js' %}"></script>
+
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+

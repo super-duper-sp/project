@@ -1,0 +1,55 @@
+    <!-- 
+        - #PROJECTS
+      -->
+
+      <section class="project" id="portfolio">
+
+        <ul class="project-list">
+
+          <li>
+            <div class="project-content section-content">
+
+              <p class="section-subtitle">BLOg</p>
+
+              <h2 class="h3 section-title">See My Works Which Will Amaze You!</h2>
+
+              <p class="section-text">
+                We develop the best quality website that serves for the long-term. Well-documented, clean, easy and
+                elegant interface
+                helps any non-technical clients.
+              </p>
+
+            </div>
+          </li>
+
+          {% for p in projects %}
+          <li>
+            <a href="#" class="project-card">
+
+              <figure class="card-banner">
+                {% if p.image %}
+                <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ p.image.url }}" 
+                class="w-100" alt="A macintosh on a yellow background.">
+                {% endif %}
+              </figure>
+
+              <div class="card-content">
+                <h3 class="h4 card-title">{{ p.title }}</h3>
+
+                <time class="publish-date" datetime="2022-04">April 2022</time>
+              </div>
+
+            </a>
+          </li>
+          {% endfor %}
+
+          <li>
+            <a href="{% url 'projects' %}">
+            <button style="text-decoration: none;" class="load-more" >Load more work</button>
+            </a>
+          </li>
+
+
+        </ul>
+
+      </section>

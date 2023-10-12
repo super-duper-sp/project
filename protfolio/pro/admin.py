@@ -2,7 +2,7 @@ from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
 
-from .models import ProjectModel,ExtraModel,AchievementModel
+from .models import ProjectModel,SkillsModel,ToolsModel
 
 # Register your models here.
 class ProjectAdmin(SummernoteModelAdmin):
@@ -10,7 +10,7 @@ class ProjectAdmin(SummernoteModelAdmin):
 
 
 admin.site.register(ProjectModel)
-admin.site.register(ExtraModel)
-admin.site.register(AchievementModel)
+admin.site.register(ToolsModel)
+admin.site.register(SkillsModel)
 
 

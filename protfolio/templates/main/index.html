@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+<!-- 
+  - #HERO
+-->
+
+{% include 'component/banner_image.html' %}
+
+
+
+
+
+<!-- 
+  - #ABOUT
+-->
+{% include 'component/about.html' %}
+
+
+
+
+<!-- 
+  - #SKILLS
+-->
+{% include 'component/skills.html' %}
+
+
+
+<!-- 
+  - #PROJECTS
+-->
+{% include 'component/project.html' %}
+
+
+<!-- 
+  - #Education
+-->
+  {% include 'component/education.html' %}
+
+
+  <!-- 
+  - #STATS
+-->
+
+{% include 'component/stats.html' %}
+
+
+<!-- 
+  - #CONTACT
+-->
+{% include 'component/contact_form.html' %}
+
+{% endblock %}
+
+
