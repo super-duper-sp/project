@@ -9,13 +9,16 @@
 
         <p class="section-subtitle">Blog</p>
 
-        <h2 class="h3 section-title">Blog</h2>
 
+        <h2 class="h3 section-title"></h2>
+              <p class="section-text">
+                Exploring topics, sharing insights, and staying updated in the world of technology and computer science. Dive into my thoughts, experiences, and discoveries in the ever-evolving IT landscape.
+              </p>
 
       </div>
     </li>
 
-    {% for blog in blogs|slice:":2" %}
+    {% for blog in blogs|slice:":4" %}
     <li>
       <a href="{% url 'blog_detail' blog.pk %}" class="stats-card">
 
