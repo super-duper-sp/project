@@ -7,12 +7,25 @@
 
         <figure class="hero-banner">
 
+          {% for a in about %}
+            
           <picture>
-            <source srcset="{% static '/images/hero-banner.png' %}" media="(min-width: 768px)">
-            <source srcset="{% static '/images/hero-banner-md.png' %}" media="(min-width: 500px)">
-            <img src="{% static '/images/hero-banner-sm.png' %}" alt="A man in a blue shirt with a happy expression"
+            {% if banner1image.image %}
+           <source srcset="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.banner1image.url }}" media="(min-width: 768px)"> 
+           {% endif %}
+
+           {% if banner2image.image %}
+           <source srcset="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.banner2image.url }}" media="(min-width: 500px)">
+           {% endif %}
+           
+           {% if banner3image.image %} 
+           <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.banner3image.url }}" alt="shubham patidat picture"
               class="w-100">
+           {% endif %}
+           
           </picture>
+           
+          {% endfor %}
 
         </figure>
 

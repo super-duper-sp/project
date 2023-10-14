@@ -27,10 +27,20 @@
 
 <p class="section-text">{{a.content}}</p>
 
-          <div class="btn-group">
-            <button class="btn btn-secondary"  href="{{a.hireLink}}">Hire me</button>
-            <button class="btn btn-primary" href="{{a.resumeLink}}">Download cv</button>
-          </div>
+<div class="btn-group">
+  <a class="btn btn-secondary" id="hireButton" href="{{a.hireLink}}">Hire me</a>
+  <a class="btn btn-primary" id="resumeButton" href="{{a.resumeLink}}">Download cv</a>
+</div>
+
+<script>
+  document.getElementById("hireButton").addEventListener("click", function() {
+    window.location.href = "{{a.hireLink}}";
+  });
+
+  document.getElementById("resumeButton").addEventListener("click", function() {
+    window.location.href = "{{a.resumeLink}}";
+  });
+</script>
 
 {% endfor %}
         </div>

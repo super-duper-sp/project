@@ -44,6 +44,9 @@ class AboutModel(models.Model):
     resumeLink=models.TextField(null=True, blank=True)
     hireLink= models.TextField(null=True, blank=True)
     image = models.ImageField(upload_to='About/', null=True, blank=True)
+    banner1image= models.ImageField(upload_to='About/banner', null=True, blank=True)
+    banner2image= models.ImageField(upload_to='About/banner', null=True, blank=True)
+    banner3image= models.ImageField(upload_to='About/banner', null=True, blank=True)
 
 
     def save(self, *args, **kwargs):
