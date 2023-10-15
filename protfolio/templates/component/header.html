@@ -27,36 +27,36 @@
         <span class="three"></span>
       </button>
 
+
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
-
-          <li>
-            <a href="{% url 'resume' %}" class="navbar-link">Home.</a>
-          </li>
-
-          <li>
-            <a href="#about" class="navbar-link">About.</a>
-          </li>
-
-          <li>
-            <a href="#skills" class="navbar-link">Skills.</a>
-          </li>
-
-          <li>
-            <a href="{% url 'projects' %}" class="navbar-link">Projects.</a>
-          </li>
-
-          <li>
-            <a href="#contact" class="navbar-link">Contact.</a>
-          </li>
-
-
-          <li>
-            <a href="{% url 'blog_index' %}" class="navbar-link">Blog.</a>
-          </li>
-
+    
+            <li>
+                <a href="{% url 'resume' %}" class="navbar-link">Home</a>
+            </li>
+    
+            {% if request.path != '/pro/projects/' and request.path != '/blog/' %}
+            <li>
+                <a href="#about" class="navbar-link">About</a>
+            </li>
+            <li>
+                <a href="#skills" class="navbar-link">Skills</a>
+            </li>
+            <li>
+                <a href="#contact" class="navbar-link">Contact</a>
+            </li>
+            {% endif %}
+    
+            <li>
+                <a href="{% url 'projects' %}" class="navbar-link">Projects</a>
+            </li>
+    
+            <li>
+                <a href="{% url 'blog_index' %}" class="navbar-link">Blog</a>
+            </li>
+    
         </ul>
-      </nav>
+    </nav>
 
     </div>
   </header>
