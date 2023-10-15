@@ -2,14 +2,16 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
-from .models import Post, Comment
+from .models import Post, Comment ,Category
 from .forms import CommentForm
 
 
 def blog_index(request):
    posts = Post.objects.filter(status=1).order_by('-created_on')
+   categories = Category.objects.order_by('name')
    context = {
-         "posts": posts,
+         "posts_all": posts,
+         "categories_all":categories,
      }
    return render(request, "blog/blog_index.html", context)
 

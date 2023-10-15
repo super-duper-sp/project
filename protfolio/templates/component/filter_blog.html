@@ -1,0 +1,59 @@
+<div style="margin-top: 40px;" class="category-container">
+    <h1 style="color: var(--color-primary);" >Categories</h1>
+  
+      <div class="tag-buttons-container">
+        
+      <div class="tag-buttons">
+          <button class="tag-button active" data-tag="all"> All </button>
+          {% for c in categories_all %}
+          <button class="tag-button"  data-tag="category-2"> <a style="color:var(--color-secondary)" href="{% url 'blog_category' c.name %}">{{ c.name }}</a> </button>
+        {% endfor %}
+      </br>
+      </div>
+  </div>
+
+
+  <style>
+
+  /* category filter */
+
+
+  .category-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        .tag-buttons-container {
+        display: flex;
+        max-width: 800px;
+        margin: 20px auto;
+        
+    }
+
+.tag-buttons {
+    display: inline-flex; 
+    gap: 10px;
+    padding: 0 20px;
+    align-items: center; 
+    white-space: nowrap; 
+}
+
+.tag-button {
+    padding: 5px 15px;
+    border-radius: 20px;
+    background-color: rgb(218, 218, 218);
+    border: none;
+    cursor: pointer;
+}
+
+.tag-button:hover {
+  background-color: rgb(196, 196, 196);
+}
+
+.tag-button.active {
+    background-color: #555;
+    color: white;
+}
+
+  </style>
