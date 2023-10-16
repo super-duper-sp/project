@@ -7,46 +7,232 @@
 {% block content %}
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-* {
-  box-sizing: border-box;
+  /* ------------- */
+/* Basic Setting */
+/* ------------- */
+
+
+
+*, *::before, *::after {
+    box-sizing: inherit;
 }
-.project {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  background-color:--bg-primary;
-  font-family: "Roboto", sans-serif;
-  color: var(--color-primary);
+
+main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    min-height: 640px;
+    background-color:var(----bg-primary);
 }
-.container {
-  display: flex;
-  width: 1040px;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+
+h3 {
+    font-family: var(--fonts-style-x);
+    font-size: 2.25em;
 }
+
+h6 {
+    font-family: var(--fonts-style-x);
+    font-size: 1em;
+}
+
+p {
+    font-size: 1em;
+}
+
+a {
+    text-decoration: none;
+}
+
+::selection {
+    color: #fff;
+    background-color: #005AEE;
+}
+
+/* ======================== */
+/* Just Copy The Code Below */
+
+/* ------------- */
+/* Content Style */
+/* ------------- */
+
+.card-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin: 20px;
+    font-family: 'neuzeit-grotesk', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #303336;
+}
+
 .card {
-  margin: 10px;
-  background-color: var(--bg-secondary);
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  width: 300px;
+    height: 470px;
+    border-radius: 10px;
+    background-color: var(--bg-secondary);
+    box-shadow: var(--shadow-1);
+    overflow: hidden;
 }
-.card-header img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+
+.card .card-top {
+    height: 236px;
+    font-family: 'neuzeit-grotesk', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #303336;
+    background-color: #d1e8ee;
+    overflow: hidden;
 }
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-  /* min-height: 250px; */
+
+.card .card-top a {
+    display: block;  
+    height: 100%;  
 }
+
+.card .card-top a img {
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+    object-position: center; 
+    transition: 300ms;
+}
+
+.card .card-content {
+    padding: 30px;
+}
+
+.card .card-content .tag {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.card .tag-travel {
+    color: #33459b;
+}
+
+.card .tag-nature {
+    color: #339b4b;
+}
+
+.card .tag-architecture {
+    color: #9b3d33;
+}
+
+.card .title {
+    color: var(--color-primary);
+    font-weight: 700;
+    transition: 300ms;
+}
+
+.card p {
+    color: var(--raw-seinna);
+    margin-top: 20px;
+}
+
+
+/* ---------------------------- */
+/* Content Style | Hover Effect */
+/* ---------------------------- */
+
+.card .card-top a img:hover {
+    opacity: .75;
+}
+
+.card .title:hover {
+    color: var(--raw-seinna);
+}
+
+/* Just Copy The Code Above */
+/* ======================== */
+
+
+/* Display this style when screen-width is lower than 1240px */
+@media only screen and (max-width: 1240px) {
+
+    main {
+        display: block;
+        height: auto;
+        min-height: max(640px, 100vh);
+        padding: 80px 0;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        margin: 0;
+    }
+
+    .card {
+        height: auto;
+    }
+
+}
+
+/* Display this style when screen-width is lower than 768px */
+@media only screen and (max-width: 768px) {
+
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Display this style when screen-width is lower than 425px */
+@media only screen and (max-width: 425px) {
+
+    .card-container {
+        padding: 20px;
+    }
+
+}
+
+
+/* ----------- */
+/* UI Designer */
+/* ----------- */
+
+.designer {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    font-weight: 400;
+    color: #46a2b9;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 300ms;
+}
+
+.designer a {
+    text-decoration: none;
+    color: #23515d;
+}
+
+body:hover .designer {
+    opacity: 1;
+}
+
+
+
+
+
+
+/* technology tags */
+
+
 
 .tag {
   background: #cccccc;
@@ -58,109 +244,45 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-
 .tag-teal {
-  background-color: var(--raw-seinna);
+  background-color: var(--sizzling-sunrise);
 }
-
-.tag-purple {
-  background-color: #5e76bf;
-}
-.tag-pink {
-  background-color: #cd5b9f;
-}
-
-.card-body p {
-  font-size: 13px;
-  margin: 0 0 40px;
-}
-.user {
-  display: flex;
-  margin-top: auto;
-}
-
-.user img {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 10px;
-}
-.user-info h5 {
-  margin: 0;
-}
-.user-info small {
-  color: #545d7a;
-}
-
 </style>
 
 
-
-<div class="project">
-  <div class="container">
-
-   
-
+<main>
+  <!-- ======================== -->
+  <!-- Just Copy The Code Below -->
+  <section class="card-container">
+    
     {% for p in projects %}
-    <div class="card">
-      <div class="card-header">
-           {% if p.image %}
-       <!--<img src="{{ p.image.url }}" alt="rover" /> -->
-  <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ p.image.url }}" alt="Image Alt Text">
-  
-           {% endif %}
-      </div>
-      <div class="card-body">
-        <h2 class="h3 section-title">
-          {{ p.title }}
-        </h2>
-        {% load custom_filters %}
-
-        <h2 class="h3 section-title">
-          {% for part in p.technology|split_title %}
-            <div style="display: inline-block; margin-right: 5px;">
-              <span class="tag tag-teal">{{ part }}</span>
-            </div>
-          {% endfor %}
-        </h2>
-
-        <p>
-         {{ p.description }}
-        </p>
-
-        <div style=" padding: 5px;background: #cccccc;display: inline-block; margin-right: 5px;">
-          <a href="{{p.githubLink}}" target="_blank" style="
-           background: #cccccc;
-  border-radius: 50px;
-  font-size: 15px;
-  font-weight: 2px;
-  margin: 0;
-  color: #fff;
-  padding: 2px 8px;
-  text-transform: uppercase;
-  cursor: pointer;
-  background-color: var(--raw-seinna);
-  ">Github</a>
-        </div>
-        
-  
-          <!-- its user details later
-  
-        <div class="user">
-          <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-          <div class="user-info">
-            <h5>July Dec</h5>
-            <small>2h ago</small>
+      <div class="card">
+          <div class="card-top">
+             {% if p.image %}
+              <a href=""><img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ p.image.url }}" alt="Unsplash Photo"></a>
+             {% endif %}
           </div>
-        </div>
-  
-          -->
-      </div>
-    </div>
-  {% endfor %}
-</div>
+          <div class="card-content">
+             {% load custom_filters %}
+              {% for part in p.technology|split_title %}
+              <span style="display: inline" class="tag tag-teal">{{ part }}</span>
+               {% endfor %}
+            
+               
+               
+                   
 
-</div>
+              <a href=""><h3 class="title">{{ p.title }}</h3></a>
+              <p style="color: var(--color-secondary);"> {{ p.description }}</p>
+          </div>
+      </div>
+    {% endfor %}
+     
+  </section>
+  <!-- Just Copy The Code Above -->
+  <!-- ======================== -->
+</main>
+
 
 
 {% endblock %}
