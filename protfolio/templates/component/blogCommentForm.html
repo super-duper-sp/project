@@ -1,0 +1,126 @@
+<!-- <h4>Leave a Reply</h4>
+                
+
+<section id="contact">
+  <h3 style="color:white;">Leave a comment:</h3>
+  <form action="/blog/{{ post.pk }}/" method="post">
+       {% csrf_token %}
+    <input type="text" placeholder='NAME'  name="author">
+
+    <textarea placeholder='YOUR MESSAGE' name="body"></textarea>
+    <button class="button" type="submit" href="/">Submit</button>
+  </form>
+</section> -->
+
+<h2   style=" text-align: center; color: var(--color-secondary);">Leave a comment:</h2>
+
+<div class=""></div>
+<form class="contact-form" action="/blog/{{ post.pk }}/" method="post"  style="background: var(--bg-secondary);">
+    {% csrf_token %}
+  <div class="half left cf">
+    <input type="text" placeholder='NAME' style="background: var(--input-bg);"  name="author">
+
+    <!-- <input type="text" id="input-name" placeholder="Name">
+    <input type="email" id="input-email" placeholder="Email address">
+    <input type="text" id="input-subject" placeholder="Subject"> -->
+  </div>
+  <div class="half right cf">
+    <textarea placeholder='YOUR MESSAGE'  style="background: var(--input-bg);" name="body" id="input-message" ></textarea>
+  </div>  
+  <!-- <button class="button" type="submit" href="/">Submit</button> -->
+  <input type="submit" value="Submit"  href="/"id="input-submit">
+</form>
+
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Merriweather);
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
+h1 {
+  text-align: center;
+  color: #a8a8a8;
+  text-shadow: 1px 1px 0 white;
+}
+
+form {
+  max-width: 600px;
+  text-align: center;
+  margin: 20px auto;
+}
+form input, form textarea {
+  border: 0;
+  outline: 0;
+  padding: 1em;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
+  margin-top: 1em;
+  font-family: 'Merriweather', sans-serif;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  resize: none;
+}
+form input:focus, form textarea:focus {
+  -moz-box-shadow: 0 0px 2px var(--raw-seinna) !important;
+  -webkit-box-shadow: 0 0px 2px #e74c3c !important;
+  box-shadow: 0 0px 2px var(--raw-seinna) !important;
+}
+form #input-submit {
+  color: var(--input-bg);
+  background:var(--color-primary);
+  cursor: pointer;
+}
+form #input-submit:hover {
+  -moz-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+  -webkit-box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+  box-shadow: 0 1px 1px 1px rgba(170, 170, 170, 0.6);
+}
+form textarea {
+  /* height: 126px; */
+}
+
+.half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1em;
+}
+
+.right {
+  width: 50%;
+}
+
+.left {
+  margin-right: 2%;
+}
+
+@media (max-width: 480px) {
+  .half {
+    width: 100%;
+    float: none;
+    margin-bottom: 0;
+  }
+}
+/* Clearfix */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
+
+</style>
