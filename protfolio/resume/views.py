@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import render
 from blog.models import Post
-from .models import MessageModel,EducationModel,ExperienceModel ,AboutModel
+from .models import MessageModel,EducationModel,ExperienceModel ,AboutModel, BannerModel
 from django.apps import apps
 BlogModel = apps.get_model('blog','Post')
 ProjectModel = apps.get_model('pro','ProjectModel')
@@ -11,6 +11,7 @@ ToolsModel=apps.get_model('pro','ToolsModel')
 
 def resu(request):
     about = AboutModel.objects.all()
+    banner = BannerModel.objects.all()
     blog =Post.objects.all()
     experience = ExperienceModel.objects.all()
     education = EducationModel.objects.all()
@@ -25,7 +26,7 @@ def resu(request):
         post.save()
         return render(request, 'main/index.html')
     else:
-        return render(request, 'main/index.html',{'Skills':Skills,'experiences':experience,'educations':education ,'projects':project ,'Tools':Tools ,'blogs':blog,'about':about })
+        return render(request, 'main/index.html',{'Skills':Skills,'experiences':experience,'educations':education ,'projects':project ,'Tools':Tools ,'blogs':blog,'about':about , 'banner':banner})
 
 
 

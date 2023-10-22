@@ -7,23 +7,23 @@
 
         <figure class="hero-banner">
 
-          {% for a in about %}
+          {% for a in banner %}
             
-          <picture>
-            {% if banner1image.image %}
-           <source srcset="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.banner1image.url }}" media="(min-width: 768px)"> 
-           {% endif %}
-
-           {% if banner2image.image %}
-           <source srcset="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.banner2image.url }}" media="(min-width: 500px)">
-           {% endif %}
-           
-           {% if banner3image.image %} 
-           <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.banner3image.url }}" alt="shubham patidat picture"
+          <!-- <picture>
+            <source srcset="./assets/images/hero-banner.png" media="(min-width: 768px)">
+            <source srcset="./assets/images/hero-banner-md.png" media="(min-width: 500px)">
+            <img src="./assets/images/hero-banner-sm.png" alt="A man in a blue shirt with a happy expression"
               class="w-100">
-           {% endif %}
+          </picture> -->
 
+          <picture>
+            {% if a.bannerimage %}
+            <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.bannerimage.url }}" alt="A man in a blue shirt with a happy expression">
+        
+            {% endif %}
+           
           </picture>
+
            
           {% endfor %}
 
@@ -31,7 +31,7 @@
 
         <div class="hero-content">
 
-          {% for a in about %}
+          {% for a in banner %}
         
           <h2 class="h2 hero-title">{{a.heading}}</h2>
           <h2 class="h2 hero-title">{{a.heading2}}</h2>
