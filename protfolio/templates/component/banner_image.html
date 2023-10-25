@@ -9,20 +9,22 @@
 
           {% for a in banner %}
             
-          <!-- <picture>
-            <source srcset="./assets/images/hero-banner.png" media="(min-width: 768px)">
-            <source srcset="./assets/images/hero-banner-md.png" media="(min-width: 500px)">
-            <img src="./assets/images/hero-banner-sm.png" alt="A man in a blue shirt with a happy expression"
-              class="w-100">
-          </picture> -->
-
           <picture>
             {% if a.bannerimage %}
-            <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.bannerimage.url }}" alt="A man in a blue shirt with a happy expression">
+            <source srcset="{% static '/images/hero-banner.png' %}" media="(min-width: 768px)">
+            <source srcset="{% static '/images/hero-banner-md.png' %}" media="(min-width: 500px)">
+            <img src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.bannerimage.url }}" alt="hero"
+              class="w-100">
+            {% endif %}
+          </picture>
+
+          <!-- <picture>
+            {% if a.bannerimage %}
+            <img class="w-100"src="https://hlzyyhtwgggvtjjhllel.supabase.co/storage/v1/object/public{{ a.bannerimage.url }}" alt="A man in a blue shirt with a happy expression">
         
             {% endif %}
            
-          </picture>
+          </picture> -->
 
            
           {% endfor %}
